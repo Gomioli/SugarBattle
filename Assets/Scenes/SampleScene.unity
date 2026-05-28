@@ -173,9 +173,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf23fe646f9a8845b605f06beef2f23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serverBtn: {fileID: 0}
-  hostBtn: {fileID: 0}
-  clientBtn: {fileID: 0}
+  serverBtn: {fileID: 1917664513}
+  hostBtn: {fileID: 1830527880}
+  clientBtn: {fileID: 1828579797}
 --- !u!1 &353136968
 GameObject:
   m_ObjectHideFlags: 0
