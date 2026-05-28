@@ -22,8 +22,9 @@ public class NetworkManagerUI : MonoBehaviour
             NetworkManager.Singleton.StartHost();
         });
         clientBtn.onClick.AddListener(() =>
-        { 
-            NetworkManager.Singleton.StartClient();        
+        {
+            NetworkManager.Singleton.StartClient();
         });
+    }
 
 }
