@@ -15,9 +15,22 @@ public class PlayerController : NetworkBehaviour
     {
         if (!IsOwner) return;
 
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            TestServerRpc();
+        }
+
         playerRigidbody.velocity = new Vector3(
             Input.GetAxis("Horizontal") * moveSpeed,
             0f,
             Input.GetAxis("Vertical") * moveSpeed);
     }
+
+
+    [ServerRpc]
+    private void TestServerRpc()
+    {
+        Debug.Log("TestServerRpc" + OwnerClientId);
+    }
+
 }
