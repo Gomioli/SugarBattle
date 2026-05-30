@@ -17,7 +17,7 @@ public class PlayerController : NetworkBehaviour
 
         if (Input.GetKeyDown(KeyCode.T))
         {
-            TestServerRpc();
+            TestClientRpc(new ClientRpcParams { Send = new ClientRpcSendParams { TargetClientIds = new List<ulong> { 1 } } }); // Ca permet que seul le client d'ID 1 recoive un message, et pas le Host
         }
 
         playerRigidbody.velocity = new Vector3(
@@ -31,6 +31,13 @@ public class PlayerController : NetworkBehaviour
     private void TestServerRpc()
     {
         Debug.Log("TestServerRpc" + OwnerClientId);
+    }
+
+
+    [ClientRpc]
+    private void TestClientRpc(ClientRpcParams clientRpcParams)
+    {
+        Debug.Log("TestClientRpc");
     }
 
 }
