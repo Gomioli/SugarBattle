@@ -26,7 +26,8 @@ public class PlayerController : NetworkBehaviour
 
         if (Input.GetKeyDown(KeyCode.Y))
         {
-            Destroy(spawnedObjectTransform.gameObject);
+            spawnedObjectTransform.GetComponent<NetworkObject>().Despawn(true); 
+            //Destroy(spawnedObjectTransform.gameObject);
         }
         
 
