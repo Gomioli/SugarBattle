@@ -205,6 +205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRigidbody: {fileID: -5191616553019680510}
   moveSpeed: 3
+  spawnedObjectPrefab: {fileID: 6237869173754088612, guid: 469f8f5bf66a153498c528f688c053c8, type: 3}
 --- !u!114 &-6202244435859087373
 MonoBehaviour:
   m_ObjectHideFlags: 0
