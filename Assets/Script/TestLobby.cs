@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Unity.Services.Authentication;
 using Unity.Services.Core;
+using Unity.Services.Lobbies;
+using Unity.Services.Lobbies.Models;
 using UnityEngine;
+using IngameDebugConsole;
 
 public class TestLobby : MonoBehaviour
 {
 
 
-    private async void Start()
+    public static async void Start()
     {
         await UnityServices.InitializeAsync();
 
@@ -18,6 +21,24 @@ public class TestLobby : MonoBehaviour
             Debug.Log("Signed In " + AuthenticationService.Instance.PlayerId);
         };
         await AuthenticationService.Instance.SignInAnonymouslyAsync(); //permet d'ajouter un compte anonyme pour l'utilisateur
+    }
+
+
+    [ConsoleMethod("CreateLobby", "Cree un lobby")]
+    public static async void CreateLobby()
+    {
+        try
+        {
+            string lobbyName = "Caca";
+            int maxPlayers = 4;
+            Lobby lobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers);
+
+            Debug.Log("Created Lobby !" + lobby.Name + " " + lobby.MaxPlayers);
+        }
+        catch (LobbyServiceException e)
+        {
+            Debug.Log(e);
+        }
     }
 
 }
