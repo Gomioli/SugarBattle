@@ -13,7 +13,11 @@ public class TestLobby : MonoBehaviour
     {
         await UnityServices.InitializeAsync();
 
-        await AuthenticationService.Instance.SignInAnonymouslyAsync();
+        AuthenticationService.Instance.SignedIn += () =>
+        {
+            Debug.Log("Signed In " + AuthenticationService.Instance.PlayerId);
+        };
+        await AuthenticationService.Instance.SignInAnonymouslyAsync(); //permet d'ajouter un compte anonyme pour l'utilisateur
     }
 
 }
