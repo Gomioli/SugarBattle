@@ -12,7 +12,7 @@ public class TestLobby : MonoBehaviour
 {
     private static bool isInitialized = false;
 
-    public static async void Start()
+    public async void Start()
     {
         await UnityServices.InitializeAsync();
 
