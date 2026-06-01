@@ -26,7 +26,7 @@ public class TestLobby : MonoBehaviour
 
 
     [ConsoleMethod("CreateLobby", "Cree un lobby")]
-    public static async void CreateLobby()
+    public static async void CreateLobby() //il faut le mettre en public static plutot qu'en private, pour que la console puisse détecter la fonction
     {
         if (!isInitialized)
         {
