@@ -48,4 +48,23 @@ public class TestLobby : MonoBehaviour
         }
     }
 
+    [ConsoleMethod("ListLobbies", "Liste les lobbies")]
+    public static async void ListLobbies()
+    {
+        try
+        {
+            QueryResponse queryResponse = await Lobbies.Instance.QueryLobbiesAsync();
+
+            Debug.Log("Lobbies found : " + queryResponse.Results.Count);
+            foreach (Lobby lobby in queryResponse.Results)
+            {
+                Debug.Log(lobby.Name + " " + lobby.MaxPlayers);
+            }
+        }
+        catch (LobbyServiceException e)
+        {
+            Debug.Log(e);
+        }
+    }
+
 }
