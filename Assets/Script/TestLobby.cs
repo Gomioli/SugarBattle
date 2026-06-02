@@ -12,6 +12,10 @@ public class TestLobby : MonoBehaviour
 {
     private static bool isInitialized = false;
 
+    private static Lobby hostLobby;
+    private float heartbeatTimer;
+
+
     public async void Start()
     {
         await UnityServices.InitializeAsync();
@@ -23,6 +27,28 @@ public class TestLobby : MonoBehaviour
         await AuthenticationService.Instance.SignInAnonymouslyAsync(); //permet d'ajouter un compte anonyme pour l'utilisateur
         isInitialized = true;
     }
+
+    private void Update()
+    {
+        HandleLobbyHeartbeat();
+    }
+
+    private async void HandleLobbyHeartbeat()
+    {
+        if (hostLobby != null)
+        {
+            heartbeatTimer -= Time.deltaTime;
+            if (heartbeatTimer < 0)
+            {
+                float heartbeatTimerMax = 15;
+                heartbeatTimer = heartbeatTimerMax;
+
+                await LobbyService.Instance.SendHeartbeatPingAsync(hostLobby.Id);
+            }
+        }
+
+    }
+
 
 
     [ConsoleMethod("CreateLobby", "Cree un lobby")]
@@ -39,6 +65,8 @@ public class TestLobby : MonoBehaviour
             string lobbyName = "Caca";
             int maxPlayers = 4;
             Lobby lobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers);
+
+            hostLobby = lobby;
 
             Debug.Log("Created Lobby !" + lobby.Name + " " + lobby.MaxPlayers);
         }
