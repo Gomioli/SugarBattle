@@ -7,6 +7,7 @@ using Unity.Services.Lobbies;
 using Unity.Services.Lobbies.Models;
 using UnityEngine;
 using IngameDebugConsole;
+using System.Threading;
 
 public class TestLobby : MonoBehaviour
 {
@@ -63,7 +64,7 @@ public class TestLobby : MonoBehaviour
         try
         {
             string lobbyName = "Caca";
-            int maxPlayers = 4;
+            int maxPlayers = 1;
             Lobby lobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers);
 
             hostLobby = lobby;
@@ -81,7 +82,20 @@ public class TestLobby : MonoBehaviour
     {
         try
         {
-            QueryResponse queryResponse = await Lobbies.Instance.QueryLobbiesAsync();
+            QueryLobbiesOptions queryLobbiesOptions = new QueryLobbiesOptions
+            {
+                Count = 25, //25 lobbies vont être recherches au maxiumum
+                Filters = new List<QueryFilter> //permet de faire les recherches avec des filtres
+                {
+                    new QueryFilter(QueryFilter.FieldOptions.AvailableSlots, "0", QueryFilter.OpOptions.GT) //ici ca va chercher les lobbies avec plus de 0 places dispo
+                },
+                Order = new List<QueryOrder> //trie les lobbies dans un certain ordre
+                {
+                    new QueryOrder(false, QueryOrder.FieldOptions.Created) //ici dans l'ordre de creation, le false precise que c'est trie dans l'ordre decroissant
+                }
+            };
+
+            QueryResponse queryResponse = await Lobbies.Instance.QueryLobbiesAsync(queryLobbiesOptions);
 
             Debug.Log("Lobbies found : " + queryResponse.Results.Count);
             foreach (Lobby lobby in queryResponse.Results)
