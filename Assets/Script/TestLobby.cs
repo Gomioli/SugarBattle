@@ -64,7 +64,7 @@ public class TestLobby : MonoBehaviour
         try
         {
             string lobbyName = "Caca";
-            int maxPlayers = 1;
+            int maxPlayers = 4;
             Lobby lobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers);
 
             hostLobby = lobby;
@@ -102,6 +102,22 @@ public class TestLobby : MonoBehaviour
             {
                 Debug.Log(lobby.Name + " " + lobby.MaxPlayers);
             }
+        }
+        catch (LobbyServiceException e)
+        {
+            Debug.Log(e);
+        }
+    }
+
+
+    [ConsoleMethod("JoinLobby", "Joindre un Lobby")]
+    public static async void JoinLobby()
+    {
+        try
+        {
+            QueryResponse queryResponse = await Lobbies.Instance.QueryLobbiesAsync();
+
+            await Lobbies.Instance.JoinLobbyByIdAsync(queryResponse.Results[0].Id);
         }
         catch (LobbyServiceException e)
         {
