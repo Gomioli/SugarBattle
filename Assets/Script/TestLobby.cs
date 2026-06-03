@@ -116,13 +116,15 @@ public class TestLobby : MonoBehaviour
 
 
     [ConsoleMethod("JoinLobby", "Joindre un Lobby")]
-    public static async void JoinLobby()
+    public static async void JoinLobbyByCode(string lobbyCode)
     {
         try
         {
             QueryResponse queryResponse = await Lobbies.Instance.QueryLobbiesAsync();
 
-            await Lobbies.Instance.JoinLobbyByIdAsync(queryResponse.Results[0].Id); // rejoint le prmeier lobby que trouve le queryResponse
+            await Lobbies.Instance.JoinLobbyByCodeAsync(lobbyCode); // rejoint le lobby avec le code correspondant
+
+            Debug.Log("Joined Lobby with code" + lobbyCode);
         }
         catch (LobbyServiceException e)
         {
