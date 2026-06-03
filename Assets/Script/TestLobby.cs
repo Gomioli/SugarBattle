@@ -117,7 +117,7 @@ public class TestLobby : MonoBehaviour
         {
             QueryResponse queryResponse = await Lobbies.Instance.QueryLobbiesAsync();
 
-            await Lobbies.Instance.JoinLobbyByIdAsync(queryResponse.Results[0].Id);
+            await Lobbies.Instance.JoinLobbyByIdAsync(queryResponse.Results[0].Id); // rejoint le prmeier lobby que trouve le queryResponse
         }
         catch (LobbyServiceException e)
         {
