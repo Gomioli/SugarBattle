@@ -67,7 +67,7 @@ public class TestLobby : MonoBehaviour
             int maxPlayers = 4;
             CreateLobbyOptions createLobbyOptions = new CreateLobbyOptions
             {
-                IsPrivate = true,
+                IsPrivate = false,
             };
 
             Lobby lobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers, createLobbyOptions);
@@ -125,6 +125,19 @@ public class TestLobby : MonoBehaviour
             await Lobbies.Instance.JoinLobbyByCodeAsync(lobbyCode); // rejoint le lobby avec le code correspondant
 
             Debug.Log("Joined Lobby with code" + lobbyCode);
+        }
+        catch (LobbyServiceException e)
+        {
+            Debug.Log(e);
+        }
+    }
+
+    [ConsoleMethod("QuickJoinLobby", "Joindre un Lobby rapidement")]
+    public static async void QuickJoinLobby() // permet de rejoindre un lobby random en appuyant sur un bouton
+    {
+        try
+        {
+            await LobbyService.Instance.QuickJoinLobbyAsync();
         }
         catch (LobbyServiceException e)
         {
