@@ -15,7 +15,7 @@ public class TestLobby : MonoBehaviour
 
     private static Lobby hostLobby;
     private float heartbeatTimer;
-
+    private string playerName;
 
     public async void Start()
     {
@@ -27,6 +27,8 @@ public class TestLobby : MonoBehaviour
         };
         await AuthenticationService.Instance.SignInAnonymouslyAsync(); //permet d'ajouter un compte anonyme pour l'utilisateur
         isInitialized = true;
+
+        playerName = "Bebou " + UnityEngine.Random.Range(1, 99);
     }
 
     private void Update()
