@@ -71,13 +71,6 @@ public class TestLobby : MonoBehaviour
             CreateLobbyOptions createLobbyOptions = new CreateLobbyOptions
             {
                 IsPrivate = false,
-                Player = new Player
-                {
-                    Data = new Dictionary<string, PlayerDataObject>
-                    {
-                        { "PlayerName", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, playerName) }
-                    }
-                }
             };
 
             Lobby lobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers, createLobbyOptions);
@@ -155,6 +148,18 @@ public class TestLobby : MonoBehaviour
         catch (LobbyServiceException e)
         {
             Debug.Log(e);
+        }
+    }
+
+
+    private Player GetPlayer()
+    {
+        return new Player
+        {
+            Data = new Dictionary<string, PlayerDataObject>
+                    {
+                        { "PlayerName", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, playerName) }
+                    }
         }
     }
 
