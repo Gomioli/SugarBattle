@@ -74,7 +74,9 @@ public class TestLobby : MonoBehaviour
 
             hostLobby = lobby;
 
+            
             Debug.Log("Created Lobby !" + lobby.Name + " " + lobby.MaxPlayers + " " + lobby.Id + " " + lobby.LobbyCode);
+            PrintPlayers(hostLobby);
         }
         catch (LobbyServiceException e)
         {
@@ -146,7 +148,7 @@ public class TestLobby : MonoBehaviour
     }
 
 
-    private void PrintPlayers(Lobby lobby)
+    private static void PrintPlayers(Lobby lobby)
     {
         Debug.Log("Players in lobby " + lobby.Name);
         foreach (Player player in lobby.Players)
