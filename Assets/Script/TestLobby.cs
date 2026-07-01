@@ -170,7 +170,7 @@ public class TestLobby : MonoBehaviour
         Debug.Log("Players in lobby " + lobby.Name);
         foreach (Player player in lobby.Players)
         {
-            Debug.Log(player.Id);
+            Debug.Log(player.Id + " " + player.Data["PlayerName"].Value);
         }
     }
 
