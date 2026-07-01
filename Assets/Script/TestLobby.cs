@@ -145,4 +145,14 @@ public class TestLobby : MonoBehaviour
         }
     }
 
+
+    private void PrintPlayers(Lobby lobby)
+    {
+        Debug.Log("Players in lobby " + lobby.Name);
+        foreach (Player player in lobby.Players)
+        {
+            Debug.Log(player.Id);
+        }
+    }
+
 }
