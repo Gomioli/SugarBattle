@@ -124,7 +124,7 @@ public class TestLobby : MonoBehaviour
 
             await Lobbies.Instance.JoinLobbyByCodeAsync(lobbyCode); // rejoint le lobby avec le code correspondant
 
-            Debug.Log("Joined Lobby with code" + lobbyCode);
+            Debug.Log("Joined Lobby with code " + lobbyCode);
         }
         catch (LobbyServiceException e)
         {
