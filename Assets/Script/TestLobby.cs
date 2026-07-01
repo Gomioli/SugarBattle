@@ -76,7 +76,8 @@ public class TestLobby : MonoBehaviour
 
             
             Debug.Log("Created Lobby !" + lobby.Name + " " + lobby.MaxPlayers + " " + lobby.Id + " " + lobby.LobbyCode);
-            PrintPlayers(hostLobby);
+
+            PrintPlayers(hostLobby); //Lorsqu'un Lobby est crée, il y aura alors les identifiants des players affichés dans la console (donc que celui qui le crée pour le moment)
         }
         catch (LobbyServiceException e)
         {
