@@ -15,7 +15,7 @@ public class TestLobby : MonoBehaviour
 
     private static Lobby hostLobby;
     private float heartbeatTimer;
-    private string playerName;
+    private static string playerName;
 
     public async void Start()
     {
@@ -29,6 +29,7 @@ public class TestLobby : MonoBehaviour
         isInitialized = true;
 
         playerName = "Bebou " + UnityEngine.Random.Range(1, 99);
+        Debug.Log(playerName);
     }
 
     private void Update()
@@ -70,6 +71,13 @@ public class TestLobby : MonoBehaviour
             CreateLobbyOptions createLobbyOptions = new CreateLobbyOptions
             {
                 IsPrivate = false,
+                Player = new Player
+                {
+                    Data = new Dictionary<string, PlayerDataObject>
+                    {
+                        { "PlayerName", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, playerName) }
+                    }
+                }
             };
 
             Lobby lobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers, createLobbyOptions);
