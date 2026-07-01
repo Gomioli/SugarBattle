@@ -127,11 +127,17 @@ public class TestLobby : MonoBehaviour
     {
         try
         {
+            JoinLobbyByCodeOptions joinLobbyByCodeOptions = new JoinLobbyByCodeOptions
+            {
+                Player = GetPlayer()
+            };
+
             QueryResponse queryResponse = await Lobbies.Instance.QueryLobbiesAsync();
 
-            await Lobbies.Instance.JoinLobbyByCodeAsync(lobbyCode); // rejoint le lobby avec le code correspondant
+            Lobby joinedLobby = await Lobbies.Instance.JoinLobbyByCodeAsync(lobbyCode, joinLobbyByCodeOptions); // rejoint le lobby avec le code correspondant
 
             Debug.Log("Joined Lobby with code " + lobbyCode);
+            PrintPlayers(joinedLobby);
         }
         catch (LobbyServiceException e)
         {
