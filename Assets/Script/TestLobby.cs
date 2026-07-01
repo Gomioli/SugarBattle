@@ -71,6 +71,7 @@ public class TestLobby : MonoBehaviour
             CreateLobbyOptions createLobbyOptions = new CreateLobbyOptions
             {
                 IsPrivate = false,
+                Player = GetPlayer()
             };
 
             Lobby lobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers, createLobbyOptions);
@@ -152,7 +153,7 @@ public class TestLobby : MonoBehaviour
     }
 
 
-    private Player GetPlayer()
+    private static Player GetPlayer()
     {
         return new Player
         {
@@ -160,7 +161,7 @@ public class TestLobby : MonoBehaviour
                     {
                         { "PlayerName", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, playerName) }
                     }
-        }
+        };
     }
 
 
