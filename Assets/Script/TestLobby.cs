@@ -187,7 +187,7 @@ public class TestLobby : MonoBehaviour
 
 
     [ConsoleMethod("UpdateLobbyGameMode", "Changer le mode de jeu du lobby")]
-    public static async void UpdateLobbyGameMode(string gameMode)
+    public static async void UpdateLobbyGameMode(string gameMode) // Ne contient pas toutes les data du lobby (map n'y figure pas si on ne veut pas que cette data soit changée)
     {
         try
         {
