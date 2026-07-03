@@ -186,11 +186,11 @@ public class TestLobby : MonoBehaviour
 
 
     [ConsoleMethod("UpdateLobbyGameMode", "Changer le mode de jeu du lobby")]
-    private static void UpdateLobbyGameMode(string gameMode)
+    private async static void UpdateLobbyGameMode(string gameMode)
     {
         try
         {
-            Lobbies.Instance.UpdateLobbyAsync(hostLobby.Id, new UpdateLobbyOptions
+            hostLobby = await Lobbies.Instance.UpdateLobbyAsync(hostLobby.Id, new UpdateLobbyOptions
             {
                 Data = new Dictionary<string, DataObject>
                 {
