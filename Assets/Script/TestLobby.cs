@@ -265,4 +265,20 @@ public class TestLobby : MonoBehaviour
         }
     }
 
+
+
+    [ConsoleMethod("LeaveLobby", "Quitter le lobby")]
+    public static async void LeaveLobby()
+    {
+        try
+        {
+            await LobbyService.Instance.RemovePlayerAsync(joinedLobby.Id, AuthenticationService.Instance.PlayerId);
+        }
+
+        catch (LobbyServiceException e)
+        {
+            Debug.Log(e);
+        }
+    }
+
 }
