@@ -281,4 +281,22 @@ public class TestLobby : MonoBehaviour
         }
     }
 
+
+
+
+
+    [ConsoleMethod("KickPlayer", "Virer un joueur")]
+    public static async void KickPlayer()
+    {
+        try
+        {
+            await LobbyService.Instance.RemovePlayerAsync(joinedLobby.Id, joinedLobby.Players[1].Id); //on cherche toujours à renvoyer un joueur par son identifiant
+        }
+
+        catch (LobbyServiceException e)
+        {
+            Debug.Log(e);
+        }
+    }
+
 }
