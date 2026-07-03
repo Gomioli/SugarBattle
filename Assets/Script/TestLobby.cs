@@ -179,6 +179,14 @@ public class TestLobby : MonoBehaviour
     }
 
 
+
+    [ConsoleMethod("PrintPlayersInConsole", "Afficher les joueurs dans la console")]
+    public static void PrintPlayersInConsole()
+    {
+        PrintPlayers(joinedLobby);
+    }
+
+
     private static void PrintPlayers(Lobby lobby)
     {
         Debug.Log("Players in lobby " + lobby.Name + " " + lobby.Data["GameMode"].Value + " " + lobby.Data["Map"].Value);
