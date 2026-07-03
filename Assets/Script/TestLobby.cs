@@ -14,6 +14,7 @@ public class TestLobby : MonoBehaviour
     private static bool isInitialized = false;
 
     private static Lobby hostLobby;
+    private static Lobby joinedLobby;
     private float heartbeatTimer;
     private static string playerName;
 
