@@ -140,7 +140,7 @@ public class TestLobby : MonoBehaviour
 
             QueryResponse queryResponse = await Lobbies.Instance.QueryLobbiesAsync();
 
-            Lobby joinedLobby = await Lobbies.Instance.JoinLobbyByCodeAsync(lobbyCode, joinLobbyByCodeOptions); // rejoint le lobby avec le code correspondant
+            Lobby lobby = await Lobbies.Instance.JoinLobbyByCodeAsync(lobbyCode, joinLobbyByCodeOptions); // rejoint le lobby avec le code correspondant
 
             Debug.Log("Joined Lobby with code " + lobbyCode);
             PrintPlayers(joinedLobby);
