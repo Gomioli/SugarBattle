@@ -66,7 +66,7 @@ public class TestLobby : MonoBehaviour
 
         try
         {
-            string lobbyName = "Caca";
+            string lobbyName = "BebouLand";
             int maxPlayers = 4;
             CreateLobbyOptions createLobbyOptions = new CreateLobbyOptions
             {
