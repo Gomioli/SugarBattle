@@ -15,7 +15,10 @@ public class TestLobby : MonoBehaviour
 
     private static Lobby hostLobby;
     private static Lobby joinedLobby;
+
     private float heartbeatTimer;
+    private float lobbyUpdateTimer;
+
     private static string playerName;
 
     public async void Start()
@@ -53,6 +56,24 @@ public class TestLobby : MonoBehaviour
         }
 
     }
+
+
+    private async void HandleLobbyPollForUpdate()
+    {
+        if (joinedLobby != null)
+        {
+            lobbyUpdateTimer -= Time.deltaTime;
+            if (lobbyUpdateTimer < 0)
+            {
+                float lobbyUpdateTimerMax = 1.1f; //Les services d'Unity permettent de changer un lobby une fois toutes les secondes
+                lobbyUpdateTimer = lobbyUpdateTimerMax;
+
+                Lobby lobby = await LobbyService.Instance.GetLobbyAsync(joinedLobby.Id);
+                joinedLobby = lobby; //la variable lobby (de type Lobby) et cette ligne, permette de changer les valeurs. Car le lobby ne le fait pas automatiquement
+            }
+        }
+    }
+
 
 
 
