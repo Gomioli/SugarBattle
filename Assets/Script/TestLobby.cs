@@ -83,6 +83,7 @@ public class TestLobby : MonoBehaviour
             Lobby lobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers, createLobbyOptions);
 
             hostLobby = lobby;
+            joinedLobby = lobby;
 
             
             Debug.Log("Created Lobby !" + lobby.Name + " " + lobby.MaxPlayers + " " + lobby.Id + " " + lobby.LobbyCode);
@@ -141,6 +142,7 @@ public class TestLobby : MonoBehaviour
             QueryResponse queryResponse = await Lobbies.Instance.QueryLobbiesAsync();
 
             Lobby lobby = await Lobbies.Instance.JoinLobbyByCodeAsync(lobbyCode, joinLobbyByCodeOptions); // rejoint le lobby avec le code correspondant
+            joinedLobby = lobby;
 
             Debug.Log("Joined Lobby with code " + lobbyCode);
             PrintPlayers(joinedLobby);
@@ -199,6 +201,7 @@ public class TestLobby : MonoBehaviour
                     { "GameMode", new DataObject(DataObject.VisibilityOptions.Public, gameMode) }
                 }
             });
+            joinedLobby = hostLobby;
 
             PrintPlayers(hostLobby);
         }
