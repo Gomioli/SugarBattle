@@ -39,6 +39,7 @@ public class TestLobby : MonoBehaviour
     private void Update()
     {
         HandleLobbyHeartbeat();
+        HandleLobbyPollForUpdate();
     }
 
     private async void HandleLobbyHeartbeat() // permet de garder en vie le lobby apres 30 secondes. Car au bout de 30 secondes, en temps normal, le lobby disparait.
