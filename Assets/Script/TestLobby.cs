@@ -242,4 +242,27 @@ public class TestLobby : MonoBehaviour
         }
     }
 
+
+
+    [ConsoleMethod("UpdatePlayerName", "Changer le nom du joueur")]
+    public static async void UpdatePlayerName(string newPlayerName) //la fonction permet de montrer comment changer aussi les data d'un joueur
+    {
+        try
+        {
+            playerName = newPlayerName;
+            await LobbyService.Instance.UpdatePlayerAsync(joinedLobby.Id, AuthenticationService.Instance.PlayerId, new UpdatePlayerOptions
+            {
+                Data = new Dictionary<string, PlayerDataObject>
+                {
+                    { "PlayerName", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, playerName) }
+                }
+            });
+        }
+
+        catch (LobbyServiceException e)
+        {
+            Debug.Log(e);
+        }
+    }
+
 }
