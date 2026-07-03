@@ -74,7 +74,8 @@ public class TestLobby : MonoBehaviour
                 Player = GetPlayer(),
                 Data = new Dictionary<string, DataObject>
                 {
-                    { "GameMode", new DataObject(DataObject.VisibilityOptions.Public, "CaptureTheFlag") }
+                    { "GameMode", new DataObject(DataObject.VisibilityOptions.Public, "CaptureTheFlag") },
+                    { "Map", new DataObject(DataObject.VisibilityOptions.Public, "StrawberryIce") }
                 }
             };
 
