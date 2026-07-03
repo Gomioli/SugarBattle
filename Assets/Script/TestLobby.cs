@@ -116,7 +116,7 @@ public class TestLobby : MonoBehaviour
             Debug.Log("Lobbies found : " + queryResponse.Results.Count);
             foreach (Lobby lobby in queryResponse.Results)
             {
-                Debug.Log(lobby.Name + " " + lobby.MaxPlayers);
+                Debug.Log(lobby.Name + " " + lobby.MaxPlayers + " " + lobby.Data["GameMode"].Value);
             }
         }
         catch (LobbyServiceException e)
