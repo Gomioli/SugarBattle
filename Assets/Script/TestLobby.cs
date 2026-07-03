@@ -178,7 +178,7 @@ public class TestLobby : MonoBehaviour
 
     private static void PrintPlayers(Lobby lobby)
     {
-        Debug.Log("Players in lobby " + lobby.Name + " " + lobby.Data["GameMode"].Value);
+        Debug.Log("Players in lobby " + lobby.Name + " " + lobby.Data["GameMode"].Value + " " + lobby.Data["Map"].Value);
         foreach (Player player in lobby.Players)
         {
             Debug.Log(player.Id + " " + player.Data["PlayerName"].Value);
