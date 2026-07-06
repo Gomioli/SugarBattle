@@ -10,7 +10,7 @@ using IngameDebugConsole;
 public class TestRelay : MonoBehaviour
 {
 
-    private async void Start()
+  /*  private async void Start()
     {
         await UnityServices.InitializeAsync(); // Initialise les services de Unity
 
@@ -19,7 +19,7 @@ public class TestRelay : MonoBehaviour
             Debug.Log("Signed in " + AuthenticationService.Instance.PlayerId); // Permet d'avoir un retour si le joueur est bien inscrit
         };
         await AuthenticationService.Instance.SignInAnonymouslyAsync(); //Donne un compte anonyme (plutôt qu'un compte qui nécessite une connexion)
-    }
+    }*/
 
 
 
