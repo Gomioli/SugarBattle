@@ -6,6 +6,9 @@ using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
 using UnityEngine;
 using IngameDebugConsole;
+using Unity.Netcode;
+using Unity.Networking.Transport.Relay;
+using Unity.Netcode.Transports.UTP;
 
 public class TestRelay : MonoBehaviour
 {
@@ -32,6 +35,10 @@ public class TestRelay : MonoBehaviour
 
             string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId); // crée une variable joinCode où on y met le code pour rejoindre le relay de la variable allocation
             Debug.Log(joinCode);
+
+
+            NetworkManager.Singleton.StartHost();
+
         }
         catch (RelayServiceException e)
         {
@@ -46,7 +53,11 @@ public class TestRelay : MonoBehaviour
         try
         {
             Debug.Log("Joining Relay with " + joinCode);
-            await RelayService.Instance.JoinAllocationAsync(joinCode);
+            JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
+
+
+            NetworkManager.Singleton.StartClient();
+
         }
         catch (RelayServiceException e)
         {
