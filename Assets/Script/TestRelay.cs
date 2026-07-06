@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Services.Authentication;
 using Unity.Services.Core;
 using Unity.Services.Relay;
+using Unity.Services.Relay.Models;
 using UnityEngine;
 
 public class TestRelay : MonoBehaviour
@@ -24,7 +25,7 @@ public class TestRelay : MonoBehaviour
     {
         try
         {
-            await RelayService.Instance.CreateAllocationAsync(3);
+            Allocation allocation = await RelayService.Instance.CreateAllocationAsync(3); // crée une allocation pour le relay
         }
         catch (RelayServiceException e)
         {
