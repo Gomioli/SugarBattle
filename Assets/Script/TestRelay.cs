@@ -26,6 +26,9 @@ public class TestRelay : MonoBehaviour
         try
         {
             Allocation allocation = await RelayService.Instance.CreateAllocationAsync(3); // crée une allocation pour le relay
+
+            string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId); // crée une variable joinCode où on y met le code pour rejoindre le relay de la variable allocation
+
         }
         catch (RelayServiceException e)
         {
