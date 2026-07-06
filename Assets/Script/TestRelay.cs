@@ -24,7 +24,7 @@ public class TestRelay : MonoBehaviour
 
 
     [ConsoleMethod("CreateRelay", "Cree un relay")]
-    public async void CreateRelay()
+    public static async void CreateRelay()
     {
         try
         {
