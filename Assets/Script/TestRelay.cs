@@ -40,4 +40,18 @@ public class TestRelay : MonoBehaviour
 
     }
 
+    [ConsoleMethod("JoinRelay", "Rejoindre un relay")]
+    public static async void JoinRelay(string joinCode)
+    {
+        try
+        {
+            Debug.Log("Joining Relay with " + joinCode);
+            await RelayService.Instance.JoinAllocationAsync(joinCode);
+        }
+        catch (RelayServiceException e)
+        {
+            Debug.Log(e);
+        }
+    }
+
 }
