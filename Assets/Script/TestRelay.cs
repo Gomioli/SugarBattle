@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Services.Authentication;
+using Unity.Services.Core;
 using UnityEngine;
 
 public class TestRelay : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    private async void Start()
     {
-        
+        await UnityServices.InitializeAsync(); // Initialise les services de Unity
+
+        AuthenticationService.Instance.SignedIn += () =>
+        {
+            Debug.Log("Signed in " + AuthenticationService.Instance.PlayerId); // Permet d'avoir un retour si le joueur est bien inscrit
+        };
+        await AuthenticationService.Instance.SignInAnonymouslyAsync(); //Donne un compte anonyme (plutôt qu'un compte qui nécessite une connexion)
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
