@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Services.Authentication;
 using Unity.Services.Core;
+using Unity.Services.Relay;
 using UnityEngine;
 
 public class TestRelay : MonoBehaviour
@@ -18,5 +19,18 @@ public class TestRelay : MonoBehaviour
         await AuthenticationService.Instance.SignInAnonymouslyAsync(); //Donne un compte anonyme (plutôt qu'un compte qui nécessite une connexion)
     }
 
+
+    private async void CreateRelay()
+    {
+        try
+        {
+            await RelayService.Instance.CreateAllocationAsync(3);
+        }
+        catch (RelayServiceException e)
+        {
+            Debug.Log(e);
+        }
+
+    }
 
 }
