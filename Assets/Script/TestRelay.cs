@@ -5,6 +5,7 @@ using Unity.Services.Core;
 using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
 using UnityEngine;
+using IngameDebugConsole;
 
 public class TestRelay : MonoBehaviour
 {
@@ -21,7 +22,9 @@ public class TestRelay : MonoBehaviour
     }
 
 
-    private async void CreateRelay()
+
+    [ConsoleMethod("CreateRelay", "Cree un relay")]
+    public async void CreateRelay()
     {
         try
         {
