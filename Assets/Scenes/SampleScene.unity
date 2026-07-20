@@ -176,6 +176,7 @@ MonoBehaviour:
   serverBtn: {fileID: 1917664513}
   hostBtn: {fileID: 1830527880}
   clientBtn: {fileID: 1828579797}
+  joinCodeInputField: {fileID: 0}
 --- !u!1 &279133875
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,7 +470,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 611161346}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1376831, y: 0.11977359, z: -0.016774887, w: 0.9830648}
+  m_LocalRotation: {x: 0.1376831, y: 0.119773544, z: -0.016774878, w: 0.9830648}
   m_LocalPosition: {x: 0, y: 0, z: 0.00000047683716}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -769,7 +770,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 792418124}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1018824, y: 0.12030382, z: -0.012413026, w: 0.9874173}
+  m_LocalRotation: {x: 0.10188243, y: 0.12030384, z: -0.012413036, w: 0.9874173}
   m_LocalPosition: {x: 0, y: 0, z: -0.00000047683716}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -975,7 +976,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215169798}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.11977884, y: 0.12005882, z: -0.014593471, w: 0.9854065}
+  m_LocalRotation: {x: 0.11977885, y: 0.12005885, z: -0.014593481, w: 0.9854065}
   m_LocalPosition: {x: 0, y: 0, z: -0.00000047683716}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
