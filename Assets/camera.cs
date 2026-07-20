@@ -11,7 +11,7 @@ public class camera : MonoBehaviour
 
     public float rotationSpeed;
 
-    private void start()
+    private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
