@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ecfbef995bc02e4f828320d011b1386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerRigidbody: {fileID: 0}
+  playerRigidbody: {fileID: 3102409907154861772}
   moveSpeed: 3
   spawnedObjectPrefab: {fileID: 6237869173754088612, guid: 469f8f5bf66a153498c528f688c053c8, type: 3}
 --- !u!114 &5941422635862256149
