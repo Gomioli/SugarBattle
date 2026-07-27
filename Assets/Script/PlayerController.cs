@@ -16,15 +16,14 @@ public class PlayerController : NetworkBehaviour
     {
 
 
-        playerRigidbody.velocity = new Vector3(
-            Input.GetAxis("Horizontal") * moveSpeed,
-            0f,
-            Input.GetAxis("Vertical") * moveSpeed);
+        Vector3 velocity = playerRigidbody.velocity;
+        velocity.x = Input.GetAxis("Horizontal") * moveSpeed;
+        velocity.z = Input.GetAxis("Vertical") * moveSpeed;
+        playerRigidbody.velocity = velocity;
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             Jump();
-            //isGrounded = false;
         }
 
     }
