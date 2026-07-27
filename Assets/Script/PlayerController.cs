@@ -21,10 +21,10 @@ public class PlayerController : NetworkBehaviour
             0f,
             Input.GetAxis("Vertical") * moveSpeed);
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
             Jump();
-            isGrounded = false;
+            //isGrounded = false;
         }
 
     }
@@ -33,7 +33,6 @@ public class PlayerController : NetworkBehaviour
 
     private void Jump()
     {
-        isGrounded = false;
         playerRigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
 
@@ -43,6 +42,14 @@ public class PlayerController : NetworkBehaviour
         if (collision.gameObject.layer == 7)
         {
             isGrounded = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.layer == 7)
+        {
+            isGrounded = false;
         }
     }
 

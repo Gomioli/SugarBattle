@@ -46,7 +46,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155694150714908055}
   serializedVersion: 4
-  m_Mass: 2
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRigidbody: {fileID: 3102409907154861772}
   moveSpeed: 3
-  spawnedObjectPrefab: {fileID: 6237869173754088612, guid: 469f8f5bf66a153498c528f688c053c8, type: 3}
+  jumpForce: 9.47
 --- !u!114 &5941422635862256149
 MonoBehaviour:
   m_ObjectHideFlags: 0
