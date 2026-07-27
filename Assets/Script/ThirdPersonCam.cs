@@ -21,4 +21,14 @@ public class Third : MonoBehaviour
         Basic,
         Combat
     }
+
+    private void Update()
+    {
+        // tourne le GO orientation
+        Vector3 dirToCombatLookAt = combatLookAt.position - new Vector3(transform.position.x, combatLookAt.position.y, transform.position.z);
+        orientation.forward = dirToCombatLookAt.normalized;
+
+        // tourne le GO playerObj
+        playerObj.forward = dirToCombatLookAt.normalized; 
+    }
 }
