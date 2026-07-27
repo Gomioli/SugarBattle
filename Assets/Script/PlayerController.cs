@@ -11,7 +11,7 @@ public class PlayerController : NetworkBehaviour
 
     private KeyCode jumpKey = KeyCode.Space;
     private bool isGrounded = true;
-
+    public float jumpForce = 2f;
 
     void Update()
     {
@@ -23,14 +23,15 @@ public class PlayerController : NetworkBehaviour
             Input.GetAxis("Vertical") * moveSpeed);
 
 
-
+        
     }
     
        
 
     private void Jump()
     {
-
+        isGrounded = false;
+        playerRigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
 
 }
