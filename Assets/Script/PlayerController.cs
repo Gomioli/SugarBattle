@@ -9,7 +9,6 @@ public class PlayerController : NetworkBehaviour
     [SerializeField] private Rigidbody playerRigidbody;
     [SerializeField] private float moveSpeed;
 
-    private KeyCode jumpKey = KeyCode.Space;
     private bool isGrounded = true;
     public float jumpForce = 2f;
 
@@ -21,7 +20,12 @@ public class PlayerController : NetworkBehaviour
             Input.GetAxis("Horizontal") * moveSpeed,
             0f,
             Input.GetAxis("Vertical") * moveSpeed);
-   
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            Jump();
+            isGrounded = false;
+        }
 
     }
     
