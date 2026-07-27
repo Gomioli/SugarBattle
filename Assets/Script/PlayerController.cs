@@ -40,7 +40,7 @@ public class PlayerController : NetworkBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.layer == 7)
         {
             isGrounded = true;
         }
