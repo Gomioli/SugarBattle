@@ -12,6 +12,8 @@ public class Third : MonoBehaviour
 
     public float rotationSpeed;
 
+    [SerializeField] Transform combatLookAt;
+
     public CameraStyle currentStyle;
 
     public enum CameraStyle
