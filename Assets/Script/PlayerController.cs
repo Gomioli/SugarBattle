@@ -21,9 +21,8 @@ public class PlayerController : NetworkBehaviour
             Input.GetAxis("Horizontal") * moveSpeed,
             0f,
             Input.GetAxis("Vertical") * moveSpeed);
+   
 
-
-        
     }
     
        
@@ -32,6 +31,15 @@ public class PlayerController : NetworkBehaviour
     {
         isGrounded = false;
         playerRigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+    }
+
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
     }
 
 }
