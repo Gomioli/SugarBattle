@@ -16,7 +16,7 @@ public class SetupCameraPlayer : NetworkBehaviour
         {
             CinemachineFreeLook freeLook = FindObjectOfType<CinemachineFreeLook>();
             freeLook.Follow = transform;
-            freeLook.LookAt = transform;
+            freeLook.LookAt = combatLookAt;
 
             ThirdPersonCam thirdPersonCam = FindObjectOfType<ThirdPersonCam>();
             thirdPersonCam.player = transform;
