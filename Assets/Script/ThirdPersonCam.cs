@@ -8,11 +8,11 @@ public class ThirdPersonCam : MonoBehaviour
     public Transform orientation;
     public Transform player;
     public Transform playerObj;
-    [SerializeField] Rigidbody rb;
+    public Rigidbody rb;
 
     public float rotationSpeed;
 
-    [SerializeField] Transform combatLookAt;
+    public Transform combatLookAt;
 
     public CameraStyle currentStyle;
 
