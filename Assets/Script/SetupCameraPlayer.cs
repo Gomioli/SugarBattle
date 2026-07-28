@@ -40,11 +40,17 @@ public class SetupCameraPlayer : NetworkBehaviour // donne accès aux fonctionnal
 
     private void Update()
     {
-        // tourne le GO orientation
+
+        // tourne orientation
+        Vector3 viewDir = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
+        orientation.forward = viewDir.normalized;
+
+
+        // tourne le GO playerObj
         Vector3 dirToCombatLookAt = combatLookAt.position - new Vector3(transform.position.x, combatLookAt.position.y, transform.position.z);
         orientation.forward = dirToCombatLookAt.normalized;
 
-        // tourne le GO playerObj
+        
         playerObj.forward = dirToCombatLookAt.normalized;
     }
 }
