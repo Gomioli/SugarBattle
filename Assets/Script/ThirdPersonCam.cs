@@ -34,9 +34,8 @@ public class ThirdPersonCam : MonoBehaviour
 
         // tourne le GO playerObj
         Vector3 dirToCombatLookAt = combatLookAt.position - new Vector3(transform.position.x, combatLookAt.position.y, transform.position.z);
-        orientation.forward = dirToCombatLookAt.normalized;
-
-
-        playerObj.forward = dirToCombatLookAt.normalized;
+        orientation.forward = Vector3.Slerp(orientation.forward, dirToCombatLookAt.normalized, Time.deltaTime * rotationSpeed);
+        playerObj.forward = Vector3.Slerp(playerObj.forward, dirToCombatLookAt.normalized, Time.deltaTime * rotationSpeed);
     }
+
 }
