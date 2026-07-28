@@ -32,7 +32,7 @@ public class SetupCameraPlayer : NetworkBehaviour // donne accès aux fonctionnal
         {
             CinemachineFreeLook freeLook = FindObjectOfType<CinemachineFreeLook>();
             freeLook.Follow = transform;
-            freeLook.LookAt = transform;
+            freeLook.LookAt = combatLookAt.transform;
         }
     }
 
