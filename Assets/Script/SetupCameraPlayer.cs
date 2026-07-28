@@ -4,53 +4,28 @@ using UnityEngine;
 using Unity.Netcode;
 using Cinemachine;
 
-public class SetupCameraPlayer : NetworkBehaviour // donne accès aux fonctionnalités du réseau Netcode.
+public class SetupCameraPlayer : NetworkBehaviour
 {
-
     [SerializeField] Transform orientation;
-    [SerializeField] Transform player;
     [SerializeField] Transform playerObj;
-    [SerializeField] Rigidbody rb;
 
-    public float rotationSpeed;
-
-    [SerializeField] Transform combatLookAt;
-
-    public CameraStyle currentStyle;
-
-    public enum CameraStyle
-    {
-        Basic,
-        Combat
-    }
-
-
-
-    public override void OnNetworkSpawn() // est appelée automatiquement une fois que l'objet réseau a fini de spawn. Similaire à un Start().
+    public override void OnNetworkSpawn()
     {
         if (IsOwner)
         {
             CinemachineFreeLook freeLook = FindObjectOfType<CinemachineFreeLook>();
             freeLook.Follow = transform;
-            freeLook.LookAt = combatLookAt.transform;
+            freeLook.LookAt = transform;
+
+            ThirdPersonCam thirdPersonCam = FindObjectOfType<ThirdPersonCam>();
+            thirdPersonCam.player = transform;
+            thirdPersonCam.orientation = orientation;
+            thirdPersonCam.playerObj = playerObj;
         }
     }
-
-
-
-    private void Update()
-    {
-
-        // tourne orientation
-        Vector3 viewDir = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
-        orientation.forward = viewDir.normalized;
-
-
-        // tourne le GO playerObj
-        Vector3 dirToCombatLookAt = combatLookAt.position - new Vector3(transform.position.x, combatLookAt.position.y, transform.position.z);
-        orientation.forward = dirToCombatLookAt.normalized;
-
-        
-        playerObj.forward = dirToCombatLookAt.normalized;
-    }
 }
+
+
+
+
+

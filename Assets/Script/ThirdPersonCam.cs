@@ -5,9 +5,9 @@ using UnityEngine;
 public class ThirdPersonCam : MonoBehaviour
 {
 
-    [SerializeField] Transform orientation;
-    [SerializeField] Transform player;
-    [SerializeField] Transform playerObj;
+    public Transform orientation;
+    public Transform player;
+    public Transform playerObj;
     [SerializeField] Rigidbody rb;
 
     public float rotationSpeed;
@@ -24,11 +24,16 @@ public class ThirdPersonCam : MonoBehaviour
 
     private void Update()
     {
-        // tourne le GO orientation
+        // tourne orientation
+        Vector3 viewDir = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
+        orientation.forward = viewDir.normalized;
+
+
+        // tourne le GO playerObj
         Vector3 dirToCombatLookAt = combatLookAt.position - new Vector3(transform.position.x, combatLookAt.position.y, transform.position.z);
         orientation.forward = dirToCombatLookAt.normalized;
 
-        // tourne le GO playerObj
-        playerObj.forward = dirToCombatLookAt.normalized; 
+
+        playerObj.forward = dirToCombatLookAt.normalized;
     }
 }
