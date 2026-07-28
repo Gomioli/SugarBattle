@@ -8,6 +8,7 @@ public class SetupCameraPlayer : NetworkBehaviour
 {
     [SerializeField] Transform orientation;
     [SerializeField] Transform playerObj;
+    [SerializeField] Transform combatLookAt;
 
     public override void OnNetworkSpawn()
     {
@@ -21,6 +22,7 @@ public class SetupCameraPlayer : NetworkBehaviour
             thirdPersonCam.player = transform;
             thirdPersonCam.orientation = orientation;
             thirdPersonCam.playerObj = playerObj;
+            thirdPersonCam.combatLookAt = combatLookAt;
         }
     }
 }
