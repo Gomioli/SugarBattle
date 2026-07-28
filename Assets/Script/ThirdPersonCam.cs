@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Third : MonoBehaviour
+public class ThirdPersonCam : MonoBehaviour
 {
 
     [SerializeField] Transform orientation;
