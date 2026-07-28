@@ -122,7 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRigidbody: {fileID: 3102409907154861772}
   moveSpeed: 3
-  jumpForce: 9.47
+  jumpForce: 5
 --- !u!114 &5941422635862256149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,6 +166,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d85fddf80af57043ab202e89933e638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orientation: {fileID: 0}
+  player: {fileID: 0}
+  playerObj: {fileID: 0}
+  rb: {fileID: 0}
+  rotationSpeed: 0
+  combatLookAt: {fileID: 0}
+  currentStyle: 0
 --- !u!1 &5729202568912689788
 GameObject:
   m_ObjectHideFlags: 0
