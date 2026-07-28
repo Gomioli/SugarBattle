@@ -8,27 +8,34 @@ public class PlayerController : NetworkBehaviour
 
     [SerializeField] private Rigidbody playerRigidbody;
     [SerializeField] private float moveSpeed;
+    [SerializeField] Transform orientation;
 
     private bool isGrounded = true;
     public float jumpForce = 2f;
 
+
     void Update()
     {
-
-
-        Vector3 velocity = playerRigidbody.velocity;
-        velocity.x = Input.GetAxis("Horizontal") * moveSpeed;
-        velocity.z = Input.GetAxis("Vertical") * moveSpeed;
-        playerRigidbody.velocity = velocity;
-
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             Jump();
         }
 
     }
-    
-       
+
+    private void FixedUpdate()
+    {
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+
+        Vector3 moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+
+        Vector3 velocity = playerRigidbody.velocity;
+        Vector3 horizontalVelocity = moveDirection.normalized * moveSpeed;
+        playerRigidbody.velocity = new Vector3(horizontalVelocity.x, velocity.y, horizontalVelocity.z);
+    }
+
+
 
     private void Jump()
     {
