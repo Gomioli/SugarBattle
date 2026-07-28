@@ -24,6 +24,9 @@ public class ThirdPersonCam : MonoBehaviour
 
     private void Update()
     {
+
+        if (player == null || orientation == null || playerObj == null || combatLookAt == null) return;
+
         // tourne orientation
         Vector3 viewDir = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
         orientation.forward = viewDir.normalized;
