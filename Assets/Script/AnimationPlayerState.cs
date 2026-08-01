@@ -5,12 +5,12 @@ using UnityEngine;
 public class AnimationPlayerState : MonoBehaviour
 {
 
-    Animator animator;
+    [SerializeField]Animator animator;
     [SerializeField] PlayerController playerController;
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
+
     }
 
     void Update()
