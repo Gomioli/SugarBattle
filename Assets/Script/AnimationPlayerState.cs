@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class AnimationPlayerState : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    Animator animator;
+    [SerializeField] PlayerController playerController;
+
+    private void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
