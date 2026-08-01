@@ -21,6 +21,11 @@ public class PlayerController : NetworkBehaviour
             Jump();
         }
 
+        if (Input.GetMouseButtonDown(0))
+        {
+            Attack();
+        }
+
     }
 
     private void FixedUpdate()
@@ -57,6 +62,11 @@ public class PlayerController : NetworkBehaviour
         {
             isGrounded = false;
         }
+    }
+
+    private void Attack()
+    {
+        print("A attaqué");
     }
 
 }
