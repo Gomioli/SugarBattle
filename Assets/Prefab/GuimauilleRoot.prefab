@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 643553206455000785}
   - component: {fileID: 5941422635862256149}
   - component: {fileID: 9078536993856655091}
+  - component: {fileID: 4567478559234219700}
   m_Layer: 0
   m_Name: GuimauilleRoot
   m_TagString: Untagged
@@ -170,6 +171,27 @@ MonoBehaviour:
   orientation: {fileID: 3439461639759383060}
   playerObj: {fileID: 1946311705987399343}
   combatLookAt: {fileID: 3850445476539354599}
+--- !u!95 &4567478559234219700
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155694150714908055}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1416361886311386683
 GameObject:
   m_ObjectHideFlags: 0
