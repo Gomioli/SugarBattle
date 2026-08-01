@@ -15,6 +15,9 @@ public class AnimationPlayerState : MonoBehaviour
 
     void Update()
     {
-
+        if (playerController.isAttacking)
+        {
+            animator.SetBool("isAttacking", true);
+        }
     }
 }
