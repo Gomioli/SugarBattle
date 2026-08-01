@@ -10,6 +10,7 @@ public class PlayerController : NetworkBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] Transform orientation;
 
+    public bool isAttacking = false;
     private bool isGrounded = true;
     public float jumpForce = 2f;
 
@@ -24,6 +25,7 @@ public class PlayerController : NetworkBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Attack();
+            isAttacking = true;
         }
 
     }
