@@ -523,7 +523,6 @@ GameObject:
   - component: {fileID: 1930595754}
   - component: {fileID: 1930595753}
   - component: {fileID: 1930595752}
-  - component: {fileID: 1930595751}
   - component: {fileID: 1930595756}
   - component: {fileID: 1930595757}
   m_Layer: 0
@@ -533,23 +532,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1930595751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1930595749}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ecfbef995bc02e4f828320d011b1386, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerRigidbody: {fileID: 1930595756}
-  moveSpeed: 3.34
-  orientation: {fileID: 1930595755}
-  isAttacking: 0
-  jumpForce: 2
 --- !u!136 &1930595752
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -675,18 +657,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1930595749}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Script: {fileID: 11500000, guid: da5cf4996ae1bfe499ed3fb5c198043e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 959718869
-  InScenePlacedSourceGlobalObjectIdHash: 0
-  AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  SpawnWithObservers: 1
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
